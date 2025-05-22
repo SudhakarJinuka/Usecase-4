@@ -17,6 +17,7 @@ Write-Host "Local CSV Path: $localCsvPath"
 # Use ${} to avoid colon parsing issues
 $remoteSource = "${username}@${sourceVMIP}:${csvFilePath}"
 $remoteTarget = "${username}@${targetVMIP}:/home/${username}/mydata.csv"
+$qey = "pwd"
 
 Write-Host "Copying from source VM..."
 scp -o StrictHostKeyChecking=no "$remoteSource" "$localCsvPath"
