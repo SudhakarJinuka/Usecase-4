@@ -1,7 +1,7 @@
 # Variables
 $sourceVMIP = "35.225.255.73"
 $targetVMIP = "104.154.202.70"
-$csvFilePath = "/home/sjinuka/sample_data.csv"  # Path to the CSV file on source VM
+$csvFilePath = "$home/sjinuka/sample_data.csv"  # Path to the CSV file on source VM
 $sshKeyPath = "$home/sjinuka/.ssh/id_rsa.pub"   # Update this path if needed
 $username = "sjinuka"                      # Replace with actual username on VMs
 
