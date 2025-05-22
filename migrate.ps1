@@ -17,7 +17,7 @@ Write-Host "Local CSV Path: $localCsvPath"
 $remoteSource = "${username}@${sourceVMIP}:${csvFilePath}"
 $remoteTarget = "${username}@${targetVMIP}:/home/${username}/mydata.csv"
 Write-Host "SSh connection test"
-ssh -o StrictHostKeyChecking=no "${username}@${sourceVMIP}" "pwd"
+ssh -o StrictHostKeyChecking=no "${username}@${sourceVMIP}:pwd"
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Failed to ssh connection test from source VM."
     exit 1
