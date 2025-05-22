@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         GIT_REPO_URL   = 'https://github.com/SudhakarJinuka/Usecase-4.git'
-        SOURCE_VM_IP   = '35.225.255.73'
-        TARGET_VM_IP   = '104.154.202.70'
+        SOURCE_VM_IP   = '10.128.0.15'
+        TARGET_VM_IP   = '10.128.0.26'
         CSV_PATH       = '/home/sjinuka/sample_data.csv'
         LOCAL_CSV_PATH = '/tmp/mydata.csv'
         USERNAME       = 'sjinuka'
