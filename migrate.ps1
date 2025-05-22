@@ -10,6 +10,7 @@ Write-Host "Starting migration..."
 Write-Host "Source VM IP: $sourceVMIP"
 Write-Host "Target VM IP: $targetVMIP"
 Write-Host "Username: $username"
+Write-Host "pwd"
 Write-Host "CSV Path on Source VM: $csvFilePath"
 Write-Host "Local CSV Path: $localCsvPath"
 
