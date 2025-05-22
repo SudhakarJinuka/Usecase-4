@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO_URL = 'https://github.com/SudhakarJinuka/Usecase-4.git' // ✅ update this
-        SSH_KEY_PATH = '/home/sjinuka/.ssh/id_rsa'     // ✅ update this
-        SOURCE_VM_IP = '35.225.255.73'                    // ✅ update this
-        TARGET_VM_IP = '104.154.202.70'                    // ✅ update this
-        CSV_PATH     = '/home/sjinuka/sample_data.csv'                   // ✅ path on source VM
-        USERNAME     = 'sjinuka'                                    // ✅ username on VMs
+        GIT_REPO_URL   = 'https://github.com/SudhakarJinuka/Usecase-4.git'
+        SOURCE_VM_IP   = '35.225.255.73'
+        TARGET_VM_IP   = '104.154.202.70'
+        CSV_PATH       = '/home/sjinuka/sample_data.csv'
+        LOCAL_CSV_PATH = '/tmp/mydata.csv'
+        USERNAME       = 'sjinuka'
     }
 
     stages {
@@ -19,14 +19,16 @@ pipeline {
 
         stage('Run PowerShell Migration Script') {
             steps {
-                pwsh """
-                    ./migrate.ps1 `
-                        -sourceVMIP '${env.SOURCE_VM_IP}' `
-                        -targetVMIP '${env.TARGET_VM_IP}' `
-                        -sshKeyPath '${env.SSH_KEY_PATH}' `
-                        -username '${env.USERNAME}' `
-                        -csvFilePath '${env.CSV_PATH}'
-                """
+                sshagent(['ssh_key']) {
+                    pwsh """
+                        ./migrate.ps1 `
+                            -sourceVMIP '${env.SOURCE_VM_IP}' `
+                            -targetVMIP '${env.TARGET_VM_IP}' `
+                            -username '${env.USERNAME}' `
+                            -csvFilePath '${env.CSV_PATH}' `
+                            -localCsvPath '${env.LOCAL_CSV_PATH}'
+                    """
+                }
             }
         }
     }
