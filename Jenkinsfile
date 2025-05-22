@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GIT_REPO_URL = 'https://github.com/SudhakarJinuka/Usecase-4.git' // ✅ update this
-        SSH_KEY_PATH = '$home/sjinuka/.ssh/id_rsa.pub'     // ✅ update this
+        SSH_KEY_PATH = '$home/sjinuka/.ssh/id_rsa'     // ✅ update this
         SOURCE_VM_IP = '35.225.255.73'                    // ✅ update this
         TARGET_VM_IP = '104.154.202.70'                    // ✅ update this
         CSV_PATH     = '/home/sjinuka/sample_data.csv'                   // ✅ path on source VM
