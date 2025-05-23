@@ -3,7 +3,7 @@ param (
     [string]$SourceHost = "10.128.0.29",
     [string]$DestinationUser = "sjinuka", 
     [string]$DestinationHost = "10.128.0.28", 
-    [string]$CsvFilePath = "/home/sjinuka/Sample_data.csv",
+    [string]$CsvFilePath = "/home/sjinuka/Sample_data1.csv",
     [string]$TargetPath = "/home/sjinuka/"
 )
 

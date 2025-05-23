@@ -8,8 +8,8 @@ pipeline {
         SOURCE_HOST = '10.128.0.29'
         DEST_USER = 'sjinuka'
         DEST_HOST = '10.128.0.28'
-        DEST_PATH = '/home//'
-        FILE_PATH = '/home/sraj/sample_data.csv'
+        DEST_PATH = '/home/sjinuka/'
+        FILE_PATH = '/home/sjinuka/sample_data1.csv'
     }
 
     stages {
