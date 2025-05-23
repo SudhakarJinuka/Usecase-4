@@ -1,10 +1,10 @@
 
 # transfer.ps1
 param (
-    [string]$DestinationUser = "sjinuka",
-    [string]$DestinationHost = "10.128.0.28",
-    [string]$CsvFilePath = "sample_data_new.csv",
-    [string]$TargetPath = "/home/sjinuka/"
+    [string]$DestinationUser,
+    [string]$DestinationHost,
+    [string]$CsvFilePath,
+    [string]$TargetPath
 )
  
 # Compose destination string with proper variable expansion
