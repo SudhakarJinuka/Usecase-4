@@ -88,23 +88,23 @@ pipeline {
         BRANCH = 'main'
     }
  
-    stages {
+     stages {
         stage('Clone GitHub Repo') {
             steps {
                 git branch: "${BRANCH}", url: "${GIT_REPO}"
             }
         }
- 
+
         stage('Transfer CSV File') {
             steps {
-                sh '''
+                sh """
                 pwsh -Command "
                     ./migrate.ps1 -DestinationUser '${DEST_USER}' `
                                   -DestinationHost '${DEST_HOST}' `
                                   -CsvFilePath '${FILE_NAME}' `
                                   -TargetPath '${DEST_PATH}'
                 "
-                '''
+                """
             }
         }
     }
