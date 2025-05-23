@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPO = 'https://github.com/SudhakarJinuka/Usecase-4.git'
+        GIT_REPO = 'https://github.com/SudhakarJinuka/test_usecase-4.git'
         BRANCH = 'main'
         SOURCE_USER = 'sjinuka'
         SOURCE_HOST = '10.128.0.29'
