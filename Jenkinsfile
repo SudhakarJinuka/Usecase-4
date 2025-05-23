@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent any
 
     environment {
@@ -39,6 +39,35 @@ pipeline {
         }
         failure {
             echo 'CSV migration failed.'
+        }
+    }
+}*/
+
+pipeline {
+    agent any
+ 
+    environment {
+        GIT_REPO = 'https://github.com/SudhakarJinuka/Usecase-4.git'
+        BRANCH = 'main'
+        DEST_USER = 'sjinuka'
+        DEST_HOST = '10.128.0.28'
+        DEST_PATH = '/home/sjinuka/'
+        FILE_NAME = 'sample_data.csv'
+    }
+ 
+    stages {
+        stage('Clone GitHub Repo') {
+            steps {
+                git branch: "${BRANCH}", url: "${GIT_REPO}"
+            }
+        }
+ 
+        stage('Transfer CSV File') {
+            steps {
+                sh '''
+                pwsh -Command "& { ./migrate.ps1 -DestinationUser \\"${DEST_USER}\\" -DestinationHost \\"${DEST_HOST}\\" -CsvFilePath \\"${FILE_NAME}\\" -TargetPath \\"${DEST_PATH}\\" }"
+                '''
+            }
         }
     }
 }
