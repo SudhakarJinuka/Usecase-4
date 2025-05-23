@@ -80,7 +80,7 @@ pipeline {
         string(name: 'DEST_USER', defaultValue: 'sjinuka', description: 'Destination Username')
         string(name: 'DEST_HOST', defaultValue: '10.128.0.28', description: 'Destination Host')
         string(name: 'DEST_PATH', defaultValue: '/home/sjinuka/', description: 'Destination Path')
-        string(name: 'FILE_NAME', defaultValue: 'sample_data_new.csv', description: 'CSV File Name to Transfer')
+        string(name: 'FILE_NAME', defaultValue: 'sample_data1.csv', description: 'CSV File Name to Transfer')
     }
  
     environment {
@@ -95,19 +95,15 @@ pipeline {
             }
         }
 
-        stage('Transfer CSV File') {
+      stage('Transfer CSV File') {
     steps {
         sh """
-        pwsh -Command \"
-        ./migrate.ps1 `
-            -DestinationUser '${DEST_USER}' `
-            -DestinationHost '${DEST_HOST}' `
-            -CsvFilePath '${FILE_NAME}' `
-            -TargetPath '${DEST_PATH}'
-        \"
+        pwsh -Command \\
+        "& './migrate.ps1' -DestinationUser '${DEST_USER}' -DestinationHost '${DEST_HOST}' -CsvFilePath '${FILE_NAME}' -TargetPath '${DEST_PATH}'"
         """
     }
 }
+
 
     }
 }
