@@ -95,18 +95,19 @@ pipeline {
             }
         }
 
-        stage('Transfer CSV File from Source VM to Destination VM') {
-            steps {
-                sh '''
-                pwsh -Command "& {
-                    ./migrate.ps1 `
-                        -DestinationUser \\"${DEST_USER}\\" `
-                        -DestinationHost \\"${DEST_HOST}\\" `
-                        -CsvFilePath \\"${FILE_NAME}\\" `
-                        -TargetPath \\"${DEST_PATH}\\"
-                }"
-                '''
-            }
-        }
+        stage('Transfer CSV File') {
+    steps {
+        sh """
+        pwsh -Command \"
+        ./migrate.ps1 `
+            -DestinationUser '${DEST_USER}' `
+            -DestinationHost '${DEST_HOST}' `
+            -CsvFilePath '${FILE_NAME}' `
+            -TargetPath '${DEST_PATH}'
+        \"
+        """
+    }
+}
+
     }
 }
