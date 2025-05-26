@@ -80,7 +80,7 @@ pipeline {
         string(name: 'DEST_USER', defaultValue: 'sjinuka', description: 'Destination Username')
         string(name: 'DEST_HOST', defaultValue: '10.128.0.28', description: 'Destination Host')
         string(name: 'DEST_PATH', defaultValue: '/home/sjinuka/', description: 'Destination Path')
-        string(name: 'FILE_NAME', defaultValue: 'sample_data1.csv', description: 'CSV File Name to Transfer')
+        string(name: 'FILE_NAME', defaultValue: 'sample.csv', description: 'CSV File Name to Transfer')
     }
  
     environment {
